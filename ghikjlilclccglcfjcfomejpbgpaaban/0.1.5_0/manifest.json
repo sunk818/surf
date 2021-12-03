@@ -1,0 +1,35 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "./background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "logo192.png",
+      "default_popup": "index.html",
+      "default_title": "Surf"
+   },
+   "content_scripts": [ {
+      "js": [ "./web-app-bus.js" ],
+      "matches": [ "http://localhost:3000/*", "https://joinsurf-staging.com/*", "https://app.joinsurf.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "./marketing-site-bus.js" ],
+      "matches": [ "https://surf-ae5ea3.webflow.io/*", "https://joinsurf.com/*", "https://www.joinsurf.com/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Surf rewards you for your everyday browsing.",
+   "icons": {
+      "192": "logo192.png",
+      "512": "logo512.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjjkSHlVeqXXPuqzXBjSxyvDmelRZm4Jqs8vcnKnLI0DKeX+Cdvqk4X4ozm8EIHEM3QAI3yeg5L0hNsHz1yOMURITW1ZOyASoEa5kXkxCfm8G7dcXGSI1SgFZGiA/QQ3f6dSObv4mfmq/TO9WXiMBQTpfjEltq7mTcj5rrA8jb67n0yRIoWajzyAm9wz/kI2uhSX84f6C+Ol61QDLzy79epFoM5hkmg4rkZaAnDA72c0/6YIq2uDVrTVgPaaiTMcX8bZfYs9xVSsVwj4wiCdw+xJJZkp1nzU0TQGs28SZ7mKlicM/m49CMxn8KbJu8yUGHpzYvB/TTNny6mYmc4iMSQIDAQAB",
+   "manifest_version": 2,
+   "name": "Surf",
+   "oauth2": {
+      "client_id": "616868683921-bpok9c7arg30t4srldtu4n1trobchint.apps.googleusercontent.com",
+      "scopes": [ "profile", "email", "openid" ]
+   },
+   "permissions": [ "tabs", "activeTab", "identity", "http://*/", "https://*/", "storage", "webNavigation", "alarms" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.5"
+}
